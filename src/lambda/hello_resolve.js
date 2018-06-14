@@ -4,7 +4,7 @@ exports.handler = function(event, context, callback) {
   const domain = event.queryStringParameters.domain;
   console.log(`Checking ${domain}`);
 
-  http.request({ method: 'HEAD', host: domain, function(res) {
+  http.request({ method: 'HEAD', host: domain }, function(res) {
     console.log(`Status: ${res.statusCode}`)
     console.log(`Server header: ${res.headers.server}`)
   }).on('error' function(e) {
